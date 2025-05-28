@@ -1,0 +1,108 @@
+/* src/styles/Contact.css */
+.contact-page {
+  background-color: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact {
+            width: 100%; /* or any desired width */
+    height:500px; /* Set the fixed height */
+    overflow: auto; 
+  max-width: 800px;
+  text-align: left;
+}
+
+.contact h1 {
+  color: #000000;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ff416c;
+}
+
+.contact p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-form label {
+  font-size: 1.1rem;
+  color: #000000;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ff416c;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000000;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #ff6691;
+}
+
+.submit-button {
+  background-color: #ff416c;
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #ff6691;
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-info a {
+  color: #ff416c;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  color: #ff416c;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  color: #ff6691;
+}
+
+.contact strong {
+  color: #ff416c;
+}

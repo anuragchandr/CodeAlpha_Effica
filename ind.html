@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Manager</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
+  background: #f4f6f8;
+}
+
+.taskbar {
+  position: sticky;
+  top: 0;
+  background-color: #f4f6f8;
+  padding: 10px;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.taskbar input {
+  flex: 1;
+  padding: 8px;
+}
+
+.taskbar button {
+  padding: 8px 16px;
+  background: #3498db;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.task-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task {
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Zestora</h2>
+      <ul>
+        <li>Dashboard</li>
+        <li>Projects</li>
+        <li>Tasks</li>
+        <li>Settings</li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="taskbar">
+        <input type="text" id="taskInput" placeholder="Enter task..." />
+        <button onclick="addTask()">Add Task</button>
+      </div>
+
+      <div id="taskList" class="task-list">
+        <!-- Tasks will appear here -->
+      </div>
+    </main>
+  </div>
+
+  <script >function addTask() {
+  const input = document.getElementById('taskInput');
+  const taskText = input.value.trim();
+  if (!taskText) return;
+
+  const task = document.createElement('div');
+  task.className = 'task';
+  task.textContent = taskText;
+
+  document.getElementById('taskList').appendChild(task);
+  input.value = '';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+.main-layout {
+    scale: 0.97;
+    margin-top: 40px;
+    display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  background-color: #f5fbff;
+  padding: 10px;
+  height: 100%;
+  width: 100vw;
+
+}
+.app{
+    overflow: auto;
+}
+.main-layout > .sidebar {
+    grid-column-end: span 1;
+
+    padding: 20px;
+    border-radius: 5px;
+        margin-left: -20px;
+}
+.content{
+
+    grid-column-end: span 3;
+    padding: 20px;
+    padding-bottom: 250px;
+    border-radius: 5px;
+}
+
+.main-layout > * {
+
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+
+}
+

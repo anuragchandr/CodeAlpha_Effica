@@ -1,0 +1,170 @@
+/* src/styles/MainPage.css */
+.main-page {
+  background-color: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 1rem;
+}
+
+.main-header {
+  text-align: center;
+  border-bottom: 4px solid #ff416c;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.main-title {
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  margin: 0;
+  color: #000000;
+  position: relative;
+  animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, 0); }
+  80% { transform: translate(2px, 0); }
+  100% { transform: translate(0); }
+}
+
+.main-subtitle {
+  font-size: 1.2rem;
+  color: #ff416c;
+  font-weight: 500;
+  margin: 0.5rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  border-left: 6px solid #ff416c;
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.project-section, .task-section, .comment-section {
+  margin-bottom: 3rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card, .task-card {
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  padding: 1rem;
+  transition: transform 0.3s;
+}
+
+.project-card:hover, .task-card:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 5px 5px 0 #ff416c;
+}
+
+.project-card h3, .task-card h4 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+  color: #000000;
+}
+
+.project-card p, .task-card p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #000000;
+}
+
+.action-button {
+  background-color: #ff416c;
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-button:hover {
+  background-color: #ff6691;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comment-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.comment {
+  border: 2px solid #000000;
+  padding: 1rem;
+  background-color: #ffffff;
+}
+
+.comment p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.comment strong {
+  color: #ff416c;
+}
+
+.comment-time {
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+.comment-input {
+  display: flex;
+  gap: 1rem;
+}
+
+.comment-input textarea {
+  flex: 1;
+  border: 2px solid #000000;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: #ffffff;
+  resize: vertical;
+}
+
+.comment-input textarea:focus {
+  outline: none;
+  border-color: #ff416c;
+}
+
+.main-footer {
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 4px solid #ff416c;
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.main-footer p {
+  margin: 0;
+}
+
+.main-footer p strong {
+  color: #ff416c;
+}
