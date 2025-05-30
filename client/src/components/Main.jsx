@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import axios from 'axios';
+import { getApiUrl } from '../config/Config';
 import './main.css';
 
 function Main() {
@@ -18,7 +19,7 @@ function Main() {
     const fetchProjects = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:3001/api/projects', {
+        const response = await axios.get(`${getApiUrl()}/api/projects`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProjects(response.data.projects.map(p => ({
@@ -87,7 +88,7 @@ function Main() {
     if (newProject.title.trim() && newProject.description.trim()) {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.post('http://localhost:3001/api/projects', newProject, {
+        const response = await axios.post(`${getApiUrl()}/api/projects`, newProject, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProjects([...projects, { ...response.data.project, showTasks: false, tasks: [] }]);

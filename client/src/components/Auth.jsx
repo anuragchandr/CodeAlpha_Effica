@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../assets/auth.css';
 import { useNavigate } from 'react-router-dom';
+import { getApiUrl } from '../config/Config';
+
 function Auth() {
   const navigate = useNavigate();
   const [signupData, setSignupData] = useState({ name: '', email: '', password: '' });
@@ -60,7 +62,7 @@ function Auth() {
 
     setIsLoading(true);
     try {
-      const response = await axios.post('http://localhost:3001/api/auth/register', signupData);
+      const response = await axios.post(`${getApiUrl()}/api/auth/register`, signupData);
       
       if (response.data) {
         setMessage('Registration successful! Please login.');
@@ -96,7 +98,7 @@ function Auth() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axios.post('http://localhost:3001/api/auth/login', loginData);
+      const response = await axios.post(`${getApiUrl()}/api/auth/login`, loginData);
       if (response.data) {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('username', response.data.user.name);
