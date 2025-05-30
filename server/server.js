@@ -10,7 +10,16 @@ const CommentModel = require('./models/comment');
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: 'http://localhost:5173' }));
+// Update CORS configuration to allow both local and production URLs
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://code-alpha-effica.vercel.app',
+    'http://code-alpha-effica.vercel.app'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS']
+}));
 
 app.get('/', (req, res) => {
   res.send({
