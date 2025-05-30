@@ -1,2 +1,13 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+#gitignore
+# Ignore all files in the .gitignore file
+
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore environment files
+.env
+
