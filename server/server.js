@@ -12,6 +12,13 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: 'http://localhost:5173' }));
 
+app.get('/', (req, res) => {
+  res.send({
+    activeStatus: 'Server is running',
+    error: false,
+  });
+}
+);
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
