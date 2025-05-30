@@ -10,10 +10,7 @@ const CommentModel = require('./models/comment');
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
-app.use(cors({
-  origin: ['http://localhost:5173', 'https://your-frontend-domain.vercel.app'],
-  credentials: true
-}));
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 app.get('/', (req, res) => {
   res.send({
@@ -25,12 +22,14 @@ app.get('/', (req, res) => {
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 5000
 })
 .then(() => console.log('✅ Connected to MongoDB'))
 .catch(err => {
-  console.error('❌ MongoDB connection error:', err);
-  process.exit(1);
+  console.error('❌ MongoDB connection error details:', {
+    name: err.name,
+    message: err.message,
+    code: err.code
+  });
 });
 
 const saltRounds = 10;
@@ -249,15 +248,6 @@ app.get('/api/comments', authenticateToken, async (req, res) => {
     console.error('❌ Error fetching comments:', err);
     res.status(500).json({ message: 'Error fetching comments' });
   }
-});
-
-// Add error handling middleware
-app.use((err, req, res, next) => {
-  console.error('Server error:', err);
-  res.status(500).json({ 
-    message: 'Internal server error',
-    error: process.env.NODE_ENV === 'development' ? err.message : undefined
-  });
 });
 
 app.listen(PORT, () => {
