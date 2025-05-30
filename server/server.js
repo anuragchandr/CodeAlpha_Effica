@@ -10,15 +10,17 @@ const CommentModel = require('./models/comment');
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(express.json());
-// Update CORS configuration to allow both local and production URLs
+// Update CORS configuration to allow Netlify domain
 app.use(cors({
   origin: [
     'http://localhost:5173',
     'https://code-alpha-effica.vercel.app',
-    'http://code-alpha-effica.vercel.app'
+    'http://code-alpha-effica.vercel.app',
+    'https://efficaprojects.netlify.app' // Add your Netlify domain
   ],
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS']
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.get('/', (req, res) => {
