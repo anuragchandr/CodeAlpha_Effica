@@ -161,7 +161,7 @@ app.post('/api/auth/login', async (req, res) => {
 
     res.json({
       message: 'Login successful',
-      alert("login successful! hurray"),
+      
       user: { name: user.name, email: user.email },
       token
     });
