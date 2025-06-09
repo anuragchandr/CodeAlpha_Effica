@@ -133,7 +133,7 @@ app.post('/api/auth/register', async (req, res) => {
     }
 
     // Handle other errors
-    res.status(500).json({ 
+    res.status(501).json({ 
       message: 'Server error during registration'
     });
   }
