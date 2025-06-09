@@ -35,7 +35,7 @@ function Main() {
     const fetchComments = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:3001/api/comments', {
+        const response = await axios.get('${getApiUrl()}/api/comments', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setComments(response.data.comments);
@@ -118,7 +118,7 @@ function Main() {
       try {
         const token = localStorage.getItem('token');
         const response = await axios.post(
-          `http://localhost:3001/api/projects/${projectId}/tasks`,
+          `${getApiUrl()}/api/projects/${projectId}/tasks`,
           subtaskData,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -158,7 +158,7 @@ function Main() {
       const task = project.tasks.find((t) => t.id === taskId);
       const token = localStorage.getItem('token');
       const response = await axios.patch(
-        `http://localhost:3001/api/projects/${projectId}/tasks/${taskId}`,
+        `${getApiUrl()}/api/projects/${projectId}/tasks/${taskId}`,
         { completed: !task.completed },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -182,7 +182,7 @@ function Main() {
       try {
         const token = localStorage.getItem('token');
         const response = await axios.post(
-          'http://localhost:3001/api/comments',
+          '${getApiUrl()}/api/comments',
           { text: newComment },
           { headers: { Authorization: `Bearer ${token}` } }
         );
