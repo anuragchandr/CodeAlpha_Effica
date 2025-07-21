@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import axios from 'axios';
+import { getApiUrl } from '../config/Config';
 import './main.css';
 
-const getApiUrl = 'https://code-alpha-effica.vercel.app';
 
 function Main() {
   const projectSectionRef = useRef(null);
